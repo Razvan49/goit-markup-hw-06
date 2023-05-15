@@ -348,7 +348,35 @@
     <div class="modal is-hidden" data-modal>
       <div class="modal-content">
         <button class="close-btn" data-modal-close>&times;</button>
-        <div class="inside-content">Continutul modalului</div>
+        <div class="inside-content">
+          <h3>Leave your information and we'll call you back</h3>
+          <form name="signup_form" validate>
+            <label>
+              Name
+              <input type="name" name="name" placeholder="John Smith" />
+            </label>
+            <label>
+              Telephone
+              <input type="tel" name="tel" placeholder="+1 2222 333 444" />
+            </label>
+            <label>
+              E-mail
+              <input type="email" name="email" placeholder="name@google.com" />
+            </label>
+            <label>
+              Comments
+              <textarea name="Comments" cols="30" rows="4" placeholder="Enter the text"></textarea>
+            </label>
+            <label>
+              <input class="check-box" type="checkbox" />
+              I agree with the letter and accept the
+              <a href="Terms and Conditions">Terms and Conditions</a>
+            </label>
+            <label>
+              <button type="submit">Send</button>
+            </label>
+          </form>
+        </div>
       </div>
     </div>
 

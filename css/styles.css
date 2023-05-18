@@ -135,8 +135,8 @@ ul {
   position: relative;
 }
 
-.nav-active-bar:hover::after,
-.nav-active-bar:focus::after {
+.nav-active-bar:after {
+  opacity: 0;
   content: "";
   position: absolute;
   height: 4px;
@@ -147,6 +147,11 @@ ul {
   border-radius: 2px;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-active-bar:hover::after,
+.nav-active-bar:focus::after {
+  opacity: 1;
 }
 
 .super-nav-class {
@@ -523,7 +528,6 @@ address a:focus {
   text-transform: uppercase;
 }
 .footer-flex input {
-  display: inline-block;
   width: 358px;
   height: 50px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -537,8 +541,6 @@ address a:focus {
   margin-top: 20px;
 }
 .footer-flex button {
-  display: inline-block;
-
   background: var(--link-active-color);
   color: #fff;
   width: 200px;
@@ -546,11 +548,24 @@ address a:focus {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.8;
+  letter-spacing: 0.06em;
   cursor: pointer;
   border: 0;
-  background: #2196f3;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+}
+.footer-flex form svg {
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  margin-left: 25px;
+}
+.footer-flex button:hover,
+.footer-flex button:focus {
+  background: #fff;
+  color: #000000;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* PORTFOLIO PAGE */
@@ -707,6 +722,22 @@ address a:focus {
   height: 100%;
   padding: 40px;
 }
+.inside-content span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: var(--social-mail-icons--normal-color);
+}
+
+.inside-content form span:nth-child(2) {
+  font-size: 14px;
+}
+
+.inside-content form {
+  display: flex;
+  flex-direction: column;
+}
 
 .close-btn {
   flex-direction: column;
@@ -724,11 +755,12 @@ address a:focus {
   position: absolute;
   top: 8px;
   right: 8px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .close-btn:hover,
 .close-btn:focus {
-  background: #000;
-  color: #fff;
+  color: var(--link-active-color);
 }
 
 .is-hidden {
@@ -736,11 +768,13 @@ address a:focus {
   visibility: hidden;
 }
 .inside-content label {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
 }
 .inside-content textarea {
+  outline: none;
   margin-top: 10px;
   padding: 12px 16px;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -748,46 +782,113 @@ address a:focus {
 }
 .inside-content label:nth-child(5) {
   flex-direction: row;
+  align-items: center;
   margin-top: 20px;
 }
 
-.inside-content a {
-  color: var(--link-active-color);
-  text-underline-offset: 2px;
-  margin-left: 0.3em;
-}
 .inside-content button {
+  display: inline;
   background: var(--link-active-color);
   color: #fff;
   width: 200px;
   height: 50px;
   font-size: 16px;
   line-height: 2;
-  outline: none;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  margin-top: 30px;
   border: 0;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  padding: 0;
+}
+.form-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.inside-content button:focus,
+.inside-content button:hover {
+  background: #1075c8;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.inside-content label:nth-child(6) {
-  flex-direction: row;
-  justify-content: center;
-  margin: 0;
-}
 .inside-content input {
-  padding-left: 35px;
+  position: relative;
+  padding-left: 40px;
   padding-bottom: 0;
   padding-top: 0;
   padding-right: 0;
   height: 40px;
+  outline: none;
   margin-top: 4px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 }
-.inside-content .check-box {
-  margin-right: 8px;
-  margin-top: 0;
-  height: auto;
+.inside-content .input:focus-within {
+  border: 1px solid #2196f3;
+}
+
+.inside-content svg {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 12px;
+  color: inherit;
+}
+.inside-content label:focus-within > .label-icon {
+  color: var(--link-active-color);
+}
+
+.checkbox-container {
+  cursor: pointer;
+  width: fit-content;
+  justify-content: center;
+  margin: auto;
+}
+.checkbox-container .terms {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-decoration-line: underline;
+  color: #2196f3;
+  margin-left: 3px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-icon {
+  background: var(--link-active-color);
+  position: relative;
+  height: 16px;
+  width: 15px;
+  border-radius: 2px;
+}
+
+.checkbox-icon svg {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 11px;
+  height: 8px;
+  display: none;
+}
+.inside-content .checkbox-text {
+  margin-left: 7px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  color: var(--second-section-color);
+}
+
+/* Atunci cand input-ul ascuns este bifat, se aplica stilul pentru iconita */
+.checkbox-container input[type="checkbox"]:checked ~ .checkbox-icon svg {
+  display: inline;
 }

@@ -345,8 +345,11 @@
         <div>
           <form>
             <label>Subscribe to the newsletter</label>
-            <input type="email" placeholder="E-mail" />
-            <button type="submit">Subscribe</button>
+            <input type="email" name="E-mail" placeholder="E-mail" required />
+            <button type="submit">
+              <span>Subscribe</span
+              ><svg><use href="./images/symbol-defs.svg#icon-send-form"></use></svg>
+            </button>
           </form>
         </div>
       </div>
@@ -359,29 +362,61 @@
           <h3>Leave your information and we'll call you back</h3>
           <form name="signup_form" validate>
             <label>
-              Name
-              <input type="name" name="name" placeholder="John Smith" />
+              <span class="label-text">Name</span>
+              <input
+                class="input"
+                type="name"
+                name="name"
+                required
+                pattern="^[a-zA-Z]+\s[a-zA-Z]+$"
+              />
+              <svg class="label-icon">
+                <use href="./images/symbol-defs.svg#icon-name-form"></use>
+              </svg>
             </label>
             <label>
-              Telephone
-              <input type="tel" name="tel" placeholder="+1 2222 333 444" />
+              <span class="label-text">Telephone</span>
+              <input
+                class="input"
+                type="tel"
+                name="tel"
+                pattern="[0-9]{4} [0-9]{3} [0-9]{3}"
+                required
+              />
+              <svg class="label-icon">
+                <use href="./images/symbol-defs.svg#icon-tel-form"></use>
+              </svg>
             </label>
             <label>
-              E-mail
-              <input type="email" name="email" placeholder="name@google.com" />
+              <span class="label-text">E-mail</span>
+              <input class="input" type="email" name="email" required />
+              <svg class="label-icon">
+                <use href="./images/symbol-defs.svg#icon-email-form"></use>
+              </svg>
             </label>
             <label>
-              Comments
-              <textarea name="Comments" cols="30" rows="4" placeholder="Enter the text"></textarea>
+              <span class="label-text">Comments</span>
+              <textarea
+                class="input"
+                name="Comments"
+                cols="30"
+                rows="4"
+                placeholder="Enter the text"
+              ></textarea>
             </label>
-            <label>
-              <input class="check-box" type="checkbox" />
-              I agree with the letter and accept the
-              <a href="Terms and Conditions">Terms and Conditions</a>
+            <label class="checkbox-container">
+              <input class="check-box" type="checkbox" name="checkbox" required />
+              <i class="checkbox-icon">
+                <svg>
+                  <use href="./images/symbol-defs.svg#icon-check"></use>
+                </svg>
+              </i>
+              <span class="checkbox-text">I agree with the letter and accept the</span>
+              <a class="terms" href="Terms and Conditions">Terms and Conditions</a>
             </label>
-            <label>
+            <div class="form-controls">
               <button type="submit">Send</button>
-            </label>
+            </div>
           </form>
         </div>
       </div>

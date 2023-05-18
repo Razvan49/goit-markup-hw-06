@@ -862,7 +862,7 @@ address a:focus {
 }
 
 .checkbox-icon {
-  background: var(--link-active-color);
+  border: 2px solid black;
   position: relative;
   height: 16px;
   width: 15px;
@@ -886,6 +886,10 @@ address a:focus {
   line-height: 24px;
   letter-spacing: 0.03em;
   color: var(--second-section-color);
+}
+.checkbox-container input[type="checkbox"]:checked ~ .checkbox-icon {
+  background: var(--link-active-color);
+  border: none;
 }
 
 /* Atunci cand input-ul ascuns este bifat, se aplica stilul pentru iconita */
